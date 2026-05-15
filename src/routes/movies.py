@@ -203,7 +203,6 @@ async def delete_movie(
     await db.commit()
 
 
-
 @router.patch("/movies/{movie_id}/")
 async def update_movie(
     movie_id: int,
