@@ -218,25 +218,25 @@ async def update_movie(
             detail="Movie with the given ID was not found."
         )
 
-    if movie.name:
+    if movie.name is not None:
         db_movie.name = movie.name
 
-    if movie.date:
+    if movie.date is not None:
         db_movie.date = movie.date
 
-    if movie.score:
+    if movie.score is not None:
         db_movie.score = movie.score
 
-    if movie.overview:
+    if movie.overview is not None:
         db_movie.overview = movie.overview
 
-    if movie.status:
+    if movie.status is not None:
         db_movie.status = movie.status
 
-    if movie.budget:
+    if movie.budget is not None:
         db_movie.budget = movie.budget
 
-    if movie.revenue:
+    if movie.revenue is not None:
         db_movie.revenue = movie.revenue
 
     db.add(db_movie)
