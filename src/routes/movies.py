@@ -4,7 +4,6 @@ from fastapi import (
     Query,
     HTTPException
 )
-from httpx import Response
 from sqlalchemy import select, func, desc
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.orm import selectinload
@@ -41,7 +40,7 @@ async def get_movies(
 
     movies = result.scalars().all()
 
-    if not movies:
+    if page > total_pages:
         raise HTTPException(
             status_code=404,
             detail="No movies found."
@@ -219,7 +218,7 @@ async def update_movie(
             detail="Movie with the given ID was not found."
         )
 
-    if db_movie.name:
+    if movie.name:
         db_movie.name = movie.name
 
     if movie.date:

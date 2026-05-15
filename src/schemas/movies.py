@@ -76,7 +76,7 @@ class MovieCreateSchema(MovieUpdateSchema):
     status: MovieStatusEnum
     budget: float = Field(ge=0)
     revenue: float = Field(ge=0)
-    country: str | CountryBase
+    country: str
     genres: List[str]
     actors: List[str]
     languages: List[str]
